@@ -44,6 +44,7 @@ class RatingsController < ApplicationController
   private
 
     def user?
+      flash[:success] = 'Login or signup to continue'
       redirect_to new_user_session_path unless current_user
     end
 
