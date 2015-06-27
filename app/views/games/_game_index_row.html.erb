@@ -3,7 +3,7 @@
     <%= link_to game.name, show_game_path(steam_appid: game.steam_appid) %>
     <%= link_to image_tag(game.header_image, class: 'game-image'), show_game_path(steam_appid: game.steam_appid) %>
     <%= link_to "See Reviews", show_game_path(steam_appid: game.steam_appid), class: 'btn btn-success' %>
-    <%= link_to "Write a Review", new_rating_path(steam_appid: game.steam_appid), class: 'btn btn-success' %>
+    <%= link_to "Add a Review", new_rating_path(steam_appid: game.steam_appid), class: 'btn btn-success' %>
   </div>
 
   <% if game.ratings.size > 0 %>
