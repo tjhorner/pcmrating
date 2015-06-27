@@ -1,4 +1,5 @@
 class Game < ActiveRecord::Base
+  require 'net/http'
 
   serialize :data
 
