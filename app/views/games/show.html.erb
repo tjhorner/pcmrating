@@ -17,6 +17,15 @@
         </div>
       </div>
 
+      <div class="row bottom-separator">
+        <div class="col-xs-12">
+          <div>
+            <%= link_to('Write Review', new_rating_path, class: 'btn btn-success full-width') unless @game.rated_by_user? current_user %>
+            <%= link_to('Edit Your Review', edit_rating_path, class: 'btn btn-success full-width') if @game.rated_by_user? current_user %>
+          </div>
+        </div>
+      </div>
+
       <div class="row bottom-separator steam-description">
         <div class="col-xs-12">
           <div class="show-description" onClick="$('.description').toggle(500); $('.show-description .view, .show-description .unview').toggle(); ">
