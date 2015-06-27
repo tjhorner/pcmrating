@@ -56,10 +56,6 @@ class Game < ActiveRecord::Base
 
   # Static Data
 
-  def name
-    data[data.keys[0]]["data"]["name"] if data
-  end
-
   def description
     desc = data[data.keys[0]]["data"]["detailed_description"] if data
     return desc.html_safe if desc
@@ -118,12 +114,18 @@ class Game < ActiveRecord::Base
       resp = Net::HTTP.get_response(URI.parse(url))
       data = JSON.parse(resp.body)
 
-      self.data = data
-
       if data[data.keys[0]]["data"].blank? || resp.code == "403"
         self.errors.add :Game, "does not exist"
         return false
       end
+
+      copy_data data
+    end
+
+    # Copy data out of the data parcel returned by the Steam API into the Game model's fields
+    def copy_data data
+      self.data = data
+      self.title = data[data.keys[0]]["data"]["name"]
     end
 
 end

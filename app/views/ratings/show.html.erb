@@ -3,7 +3,7 @@
     <div class="col-xs-6 col-xs-offset-3">
 
       <h3>
-        <%= @rating.game.name %> review <%= "by #{@rating.user.username}" if @rating.user.username %>
+        <%= @rating.game.title %> review <%= "by #{@rating.user.username}" if @rating.user.username %>
       </h3>
 
       <%= link_to "Back to game page", show_game_path, class: 'back-link' %>

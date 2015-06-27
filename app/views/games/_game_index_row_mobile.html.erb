@@ -1,6 +1,6 @@
 <div class="row game <% 'even' if game_counter % 2 == 0 %>">
   <div class="col-xs-6 game-name">
-    <%= link_to game.name, show_game_path(steam_appid: game.steam_appid) %>
+    <%= link_to game.title, show_game_path(steam_appid: game.steam_appid) %>
     <%= link_to image_tag(game.header_image, class: 'game-image'), show_game_path(steam_appid: game.steam_appid)  %>
   </div>
   <div class="col-xs-6 ranking stat">
