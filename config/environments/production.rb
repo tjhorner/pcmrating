@@ -77,13 +77,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'pcmrating.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'www.pcmrating.com' }
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for mandrill
   ActionMailer::Base.smtp_settings = {
     :port           => 587,
     :address        => "smtp.mandrillapp.com",
-    :domain         => "http://pcmrating.herokuapp.com/",
+    :domain         => "http://www.pcmrating.com/",
     :user_name      => ENV["MANDRILL_USERNAME"],
     :password       => ENV["MANDRILL_API"],
     :authentication => :plain,
