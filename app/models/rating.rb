@@ -55,11 +55,11 @@ class Rating < ActiveRecord::Base
     :"Partially stable servers." => 1,
     :"Servers unstable at high volume." => 2,
     :"Acceptable servers" => 3,
-    :"Reliable servers or dedicated server software available (or N/A)" => 4,
+    :"Reliable servers or dedicated server software available (or Single Player)" => 4,
   }
 
   enum dlc: {
-    :"Day 1 DLC, affects online game balance" => 0,
+    :"Day 1 DLC, affects game balance" => 0,
     :"Day 1 DLC, cosmetic only" => 1,
     :"No Day 1 DLC" => 2,
     :"Day 1 DLC is free and provides useful content" => 3,
