@@ -6,6 +6,8 @@ class Rating < ActiveRecord::Base
   validates :user, presence: true
   validates :game, presence: true
 
+  validates_uniqueness_of :user_id, :scope => :game_id
+
   validates :framerate,    presence: true
   validates :resolution,   presence: true
   validates :optimization, presence: true
