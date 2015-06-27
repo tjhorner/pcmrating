@@ -38,16 +38,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  config.action_mailer.default_url_options = { host: 'pcmratings.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  # SMTP settings for mandrill
-  ActionMailer::Base.smtp_settings = {
-    :port           => 587,
-    :address        => "smtp.mandrillapp.com",
-    :domain         => "http://pcmratings.herokuapp.com/",
-    :user_name      => ENV["MANDRILL_USERNAME"],
-    :password       => ENV["MANDRILL_API"],
-    :authentication => :plain,
-  }
 end
