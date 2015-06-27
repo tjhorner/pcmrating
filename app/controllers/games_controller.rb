@@ -5,12 +5,12 @@ class GamesController < ApplicationController
   before_action :setup_game, except: [:index, :new, :create]
 
   def index
-    @games = Game.all.paginate(:page => params[:page])
+    @games = Game.all.paginate(:page => params[:page], per_page: 5)
   end
 
   def show
     if @game
-      @reviews = @game.ratings.paginate(:page => params[:page])
+      @reviews = @game.ratings.paginate(:page => params[:page], per_page: 5)
     else
       @game = Game.new(steam_appid: params[:steam_appid])
       render :new
