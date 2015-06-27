@@ -28,7 +28,7 @@ class Rating < ActiveRecord::Base
     :"Does not support 1080p" => 0,
     :"Limited 1080p support" => 1,
     :"Supports 1080p" => 2,
-    :"Supports 1080p" => 3,
+    :"Supports 1080p with multi-monitor support" => 3,
     :"4k and beyond" => 4,
   }
 
@@ -53,7 +53,7 @@ class Rating < ActiveRecord::Base
     :"Partially stable servers." => 1,
     :"Servers unstable at high volume." => 2,
     :"Acceptable servers" => 3,
-    :"Reliable servers or dedicated server software available" => 4,
+    :"Reliable servers or dedicated server software available (or N/A)" => 4,
   }
 
   enum dlc: {
@@ -61,7 +61,7 @@ class Rating < ActiveRecord::Base
     :"Day 1 DLC, cosmetic only" => 1,
     :"No Day 1 DLC" => 2,
     :"Day 1 DLC is free and provides useful content" => 3,
-    :"Repeated large content patches that are free or very cheap, equivalent of old-style expansions" => 4,
+    :"Large content patches in the style of old expansions or no DLC" => 4,
   }
 
   enum bugs: {
