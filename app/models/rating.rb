@@ -121,7 +121,7 @@ class Rating < ActiveRecord::Base
   end
 
   def score
-    votes_for.up.size - votes_for.down.size
+    cached_votes_score
   end
 
   def get_stat stat
