@@ -41,9 +41,7 @@ $border-color: #DBDBDB
     left: -1px
 
   .steam-description
-    border-bottom: 1px solid $border-color
-    padding-bottom: 20px
-
+    padding-top: 20px
     .show-description
       cursor: pointer
       color: #337ab7
@@ -54,11 +52,7 @@ $border-color: #DBDBDB
       display: none
 
   .images
-    border-bottom: 1px solid $border-color
-    padding-bottom: 20px
     text-align: center
-    margin-top: 20px
-    margin-bottom: 20px
     .ranking
       text-align: left
       img
@@ -76,7 +70,10 @@ $border-color: #DBDBDB
         margin-top: 10px
 
   .rating
-    border-bottom: 1px solid $border-color
-    padding-bottom: 20px
     ul
       list-style: none
+
+  & .row.bottom-separator
+    border-bottom: 1px solid $border-color
+    padding-bottom: 20px
+    padding-top: 20px
