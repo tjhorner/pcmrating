@@ -73,7 +73,7 @@ class Rating < ActiveRecord::Base
   }
 
   enum settings: {
-    :"No settings to cange" => 0,
+    :"No settings to change" => 0,
     :"Limited settings, no video options" => 1,
     :"Preset video settings only (Low, Medium, High)" => 2,
     :"Acceptable video settings, can change most things" => 3,
