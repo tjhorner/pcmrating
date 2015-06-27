@@ -93,6 +93,8 @@ class Game < ActiveRecord::Base
   end
 
   def rated_by_user? user
+    return false unless user
+
     rating = Rating.find_by(user_id: user.id, game_id: self.id)
 
     return true if rating
