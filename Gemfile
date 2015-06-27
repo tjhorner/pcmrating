@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Core
 gem 'rails', '4.2.2'
+gem 'pg'
 
 # Authentication
 gem 'devise'
@@ -24,7 +25,6 @@ gem 'will_paginate'
 gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -34,7 +34,5 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
-
