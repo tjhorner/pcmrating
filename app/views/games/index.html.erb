@@ -1,3 +1,14 @@
+<div class="row">
+  <div class="col-xs-12">
+    <% if current_user %>
+      <%= link_to 'Add a game', new_game_path, class: 'btn btn-info full-width' %>
+    <% else %>
+      <%= link_to 'Login to review or add a game', new_user_session_path, class: 'btn btn-info full-width' %>
+      <%= link_to 'Sign up to review or add a game', new_user_registration_path, class: 'btn btn-info full-width' %>
+    <% end %>
+  </div>
+</div>
+
 <div id="game-index">
   <div class="hidden-xs">
     <div class="row headers">
