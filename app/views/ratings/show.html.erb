@@ -1,0 +1,64 @@
+<div class="rating-show">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+
+      <h3>
+        <%= @rating.game.name %> review <%= "by #{@rating.user.username}" if @rating.user.username %>
+      </h3>
+
+      <%= link_to "Back to game page", show_game_path, class: 'back-link' %>
+
+      <div class="row images">
+        <div class="col-xs-8">
+          <%= image_tag(@game.header_image) %>
+        </div>
+        <div class="col-xs-4 ranking">
+          <%= image_tag(@game.ranking.to_s + '.jpg') if @game.ratings.size > 0 %>
+        </div>
+      </div>
+
+      <div>
+        <%= label_tag '', "Framerate: " %><%= @rating.framerate %>
+      </div>
+
+      <div>
+        <%= label_tag '', "Resolution: " %><%= @rating.resolution %>
+      </div>
+
+      <div>
+        <%= label_tag '', "Optimization: " %><%= @rating.optimization %>
+      </div>
+
+      <div>
+        <%= label_tag '', "Mods: " %><%= @rating.mods %>
+      </div>
+
+      <div>
+        <%= label_tag '', "Servers: " %><%= @rating.servers %>
+      </div>
+
+      <div>
+        <%= label_tag '', "DLC: " %><%= @rating.dlc %>
+      </div>
+
+      <div>
+        <%= label_tag '', "Bugs: " %><%= @rating.bugs %>
+      </div>
+
+      <div>
+        <%= label_tag '', "Settings: " %><%= @rating.settings %>
+      </div>
+
+      <div>
+        <%= label_tag '', "Controls: " %><%= @rating.controls %>
+      </div>
+
+      <% unless @rating.review.blank? %>
+        <div>
+          <%= label_tag '', "Review: " %><%= @rating.review %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

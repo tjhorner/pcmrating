@@ -1,0 +1,25 @@
+#flash_error {
+  background-color:#FCC;
+}
+
+#flash_alert{
+  background-color:#FFE5CC;
+}
+
+#flash_notice {
+  background-color:#CFC;
+}
+
+.flash {
+  margin-top: 50px;
+  cursor:pointer;
+  display:none;
+  width:100%;
+  text-align:center;
+  padding-top:0.5em;
+  padding-bottom:0.5em;
+  font-size:1.3em;
+  top:0;
+  left:0;
+  z-index:10000;
+}

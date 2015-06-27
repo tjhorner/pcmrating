@@ -1,0 +1,9 @@
+<div class="row game <% 'even' if review_counter % 2 == 0 %>">
+  <div class="col-xs-6 game-name">
+    <%= link_to review.game.name, show_game_path(steam_appid: review.game.steam_appid) %>
+    <%= link_to image_tag(review.game.header_image, class: 'game-image'), show_game_path(steam_appid: review.game.steam_appid)  %>
+  </div>
+  <div class="col-xs-6 ranking stat">
+    <%= image_tag review.game.ranking.to_s + '.jpg', class: 'mobile' %>
+  </div>
+</div>

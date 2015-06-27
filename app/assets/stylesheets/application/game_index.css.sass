@@ -1,0 +1,22 @@
+@import "common/mixins"
+
+#game-index
+  margin-top: 50px
+  .game
+    margin-top: 10px
+    padding-top: 10px
+    padding-bottom: 10px
+    @include flexbox-centered-children
+
+    &.even
+      background: #f5f5f5
+
+    .stat
+      text-align: center
+      &.ranking
+        img
+          width: 50px
+
+    .game-name
+      .game-image
+        width: 100%

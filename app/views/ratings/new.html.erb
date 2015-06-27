@@ -1,0 +1,85 @@
+<div class="rating-form">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= @rating.errors.messages if @rating && @rating.errors.size > 0 %>
+
+      <div class="row images">
+        <div class="col-xs-6">
+          <h3>
+            Editing your review for <%= @game.name %>
+          </h3>
+        </div>
+        <div class="col-xs-6 col-sm-2">
+          <%= image_tag(@game.header_image) %>
+        </div>
+      </div>
+
+      <%= form_for @rating, url: create_rating_path do |f| %>
+        <div class="row">
+          <div class="col-xs-6">
+            <div>
+              <%= f.label "Frame rate:" %>
+              <%= f.select :framerate, options_for_select(Rating.framerates.keys) %>
+            </div>
+
+            <div>
+              <%= f.label "Resolution:" %>
+              <%= f.select :resolution, options_for_select(Rating.resolutions.keys) %>
+            </div>
+
+            <div>
+              <%= f.label "Optimization:" %>
+              <%= f.select :optimization, options_for_select(Rating.optimizations.keys) %>
+            </div>
+
+            <div>
+              <%= f.label "Mods:" %>
+              <%= f.select :mods, options_for_select(Rating.mods.keys) %>
+            </div>
+
+            <div>
+              <%= f.label "Servers:" %>
+              <%= f.select :servers, options_for_select(Rating.servers.keys) %>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div>
+              <label>DLC:</label>
+              <%= f.select :dlc, options_for_select(Rating.dlcs.keys) %>
+            </div>
+
+            <div>
+              <%= f.label "Buggyness:" %>
+              <%= f.select :bugs, options_for_select(Rating.bugs.keys) %>
+            </div>
+
+            <div>
+              <%= f.label "Settings:" %>
+              <%= f.select :settings, options_for_select(Rating.settings.keys) %>
+            </div>
+
+            <div>
+              <%= f.label "Controls:" %>
+              <%= f.select :controls, options_for_select(Rating.controls.keys) %>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.label "Review:" %>
+            <%= f.text_area :review, placeholder: :Review, value: @rating.review %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6 col-xs-offset-3">
+            <%= f.button "Submit Review", class: "btn btn-success" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

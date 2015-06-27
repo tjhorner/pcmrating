@@ -1,0 +1,36 @@
+<% if @game.ratings.size > 0 %>
+  <div class="rating row">
+    <div class="col-xs-12">
+      <h3>Average Rating</h3>
+      <ul>
+        <li>
+          <label>Framerate:</label> <%= @game.get_stat_string :framerate %>
+        </li>
+        <li>
+          <label>Resolution:</label> <%= @game.get_stat_string :resolution %>
+        </li>
+        <li>
+          <label>Optimization:</label> <%= @game.get_stat_string :optimization %>
+        </li>
+        <li>
+          <label>Mods:</label> <%= @game.get_stat_string :mods %>
+        </li>
+        <li>
+          <label>Servers:</label> <%= @game.get_stat_string :servers %>
+        </li>
+        <li>
+          <label>DLC:</label> <%= @game.get_stat_string :dlc %>
+        </li>
+        <li>
+          <label>Bugs:</label> <%= @game.get_stat_string :bugs %>
+        </li>
+        <li>
+          <label>Settings:</label> <%= @game.get_stat_string :settings %>
+        </li>
+        <li>
+          <label>Controls:</label> <%= @game.get_stat_string :controls %>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>

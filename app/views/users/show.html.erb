@@ -1,0 +1,65 @@
+<h3>
+  <%= @user.username %>'s profile
+</h3>
+
+<h3>
+  <%= @user.username %>'s reviews
+</h3>
+
+<div id="game-index">
+  <div class="hidden-xs">
+    <div class="row headers">
+      <div class="col-xs-2">
+        Name
+      </div>
+      <div class="col-xs-1">
+        Ranking
+      </div>
+      <div class="col-xs-1">
+        Framerate
+      </div>
+      <div class="col-xs-1">
+        Resolution
+      </div>
+      <div class="col-xs-1">
+        Optimization
+      </div>
+      <div class="col-xs-1">
+        Mods
+      </div>
+      <div class="col-xs-1">
+        Servers
+      </div>
+      <div class="col-xs-1">
+        DLC
+      </div>
+      <div class="col-xs-1">
+        Bugs
+      </div>
+      <div class="col-xs-1">
+        Settings
+      </div>
+      <div class="col-xs-1">
+        Controls
+      </div>
+    </div>
+
+    <%= render partial: 'user_reviews', collection: @reviews, as: :review %>
+  </div>
+
+  <div class="visible-xs">
+    <div class="row headers">
+      <div class="col-xs-6">
+        Name
+      </div>
+      <div class="col-xs-6">
+        Ranking
+      </div>
+    </div>
+
+    <%= render partial: 'user_reviews_mobile', collection: @reviews, as: :review %>
+  </div>
+
+  <%= will_paginate @reviews %>
+
+</div>

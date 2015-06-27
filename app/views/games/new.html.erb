@@ -1,0 +1,25 @@
+<%= @game.errors.messages if @game && @game.errors.size > 0 %>
+
+<div class="row new-game-form">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <%= form_for @game, url: create_game_path do |f| %>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.label :steam_appid, "Steam App ID (instructions below)" %>
+          <%= f.text_field :steam_appid, value: @game.steam_appid %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= f.button "Add Game", class: "btn btn-success" %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row add-game-instructions">
+      <div class="col-xs-12">
+        <%= image_tag 'app_id_instructions.png' %>
+      </div>
+    </div>
+  </div>
+</div>

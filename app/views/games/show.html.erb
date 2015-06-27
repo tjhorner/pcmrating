@@ -1,0 +1,79 @@
+<div class="game-show-page">
+  <div class="game-title">
+    <h1><%= @game.name %></h1>
+    <label>Total Reviews:</label> <%= @game.ratings.size %>
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-8 left">
+
+      <div class="row images">
+        <div class="col-xs-8">
+          <%= image_tag(@game.header_image) %>
+        </div>
+        <div class="col-xs-4 ranking">
+          <%= image_tag(@game.ranking.to_s + '.jpg') if @game.ratings.size > 0 %>
+        </div>
+      </div>
+
+      <div class="row steam-description">
+        <div class="col-xs-12">
+          <div class="show-description" onClick="$('.description').toggle(500); $('.show-description .view, .show-description .unview').toggle(); ">
+            <span class="view">View</span><span class="unview">Hide</span> Steam Description
+          </div>
+          <div class="description">
+            <%= @game.description %>
+          </div>
+        </div>
+      </div>
+
+      <%= render 'game_show_stats' %>
+
+      <div class="row reviews">
+        <div class="col-xs-12">
+          <h3>Reviews</h3>
+          <div>
+            <%= link_to('Write Review', new_rating_path) unless @game.rated_by_user? current_user %>
+            <%= link_to('Edit Your Review', edit_rating_path) if @game.rated_by_user? current_user %>
+          </div>
+
+          <%= render partial: 'review', collection: @reviews %>
+
+          <%= will_paginate @reviews %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xs-4 right">
+      <h3>Game Information</h3>
+      <% if @game.dlc %>
+        <div>
+          <label>Total DLC:</label> <%= @game.dlc.size %>
+        </div>
+      <% end %>
+      <div>
+        <label>Developers:</label> <%= @game.developers[0] %>
+      </div>
+      <div>
+        <label>Publishers:</label> <%= @game.publishers[0] %>
+      </div>
+      <div>
+        <label>Website:</label> <%= link_to @game.website %>
+      </div>
+      <div>
+        <label><%= link_to "View on Steam", "http://store.steampowered.com/app/#{@game.steam_appid}/" %>
+      </div>
+
+      <h3>Requirements</h3>
+      <div>
+        <%= @game.min_requirements %>
+      </div>
+      <div>
+        <%= @game.recommended_requirements %>
+      </div>
+    </div>
+
+  </div>
+</div>

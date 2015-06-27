@@ -1,0 +1,37 @@
+<div class="review">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to review.user.username, show_user_path(id: review.user.id) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6"><label>Framerate:</label> <%= review.framerate %></div>
+    <div class="col-xs-12 col-sm-6"><label>Resolution:</label> <%= review.resolution %></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6"><label>Optimization:</label> <%= review.optimization %></div>
+    <div class="col-xs-12 col-sm-6"><label>Mods:</label> <%= review.mods %></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6"><label>Servers:</label> <%= review.servers %></div>
+    <div class="col-xs-12 col-sm-6"><label>DLC:</label> <%= review.dlc %></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6"><label>Bugs:</label> <%= review.bugs %></div>
+    <div class="col-xs-12 col-sm-6"><label>Settings:</label> <%= review.settings %></div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6"><label>Controls:</label> <%= review.controls %></div>
+  </div>
+
+  <% unless review.review.blank? %>
+    <div class="row">
+      <div class="col-xs-12 review-text">
+        <label>Review</label>
+        <%= review.review %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

@@ -1,0 +1,21 @@
+@import "common/mixins"
+
+.rating-form, .new-game-form
+  .images
+    @include flexbox-centered-children
+    margin-bottom: 45px
+
+  input, textarea, select, button
+    width: 100%
+    margin-bottom: 20px
+
+  input, select
+    height: 35px
+    background: transparent
+
+  textarea
+    height: 150px
+
+.add-game-instructions
+  img
+    width: 100%
