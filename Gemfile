@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 # Core
 gem 'rails', '4.2.2'
-gem 'sqlite3'
 
 # Authentication
 gem 'devise'
@@ -24,10 +23,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'will_paginate'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'better_errors'
   gem "binding_of_caller"
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
