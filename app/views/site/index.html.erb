@@ -9,12 +9,7 @@
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
         <%= link_to 'View Games', games_path, class: 'btn btn-success full-width' %>
-        <% if current_user %>
-          <%= link_to 'Add a game', new_game_path, class: 'btn btn-info full-width' %>
-        <% else %>
-          <%= link_to 'Login to review', new_user_session_path, class: 'btn btn-info full-width' %>
-          <%= link_to 'Sign up to review', new_user_registration_path, class: 'btn btn-info full-width' %>
-        <% end %>
+        <%= link_to 'Add a game', new_game_path, class: 'btn btn-info full-width' %>
       </div>
     </div>
 
