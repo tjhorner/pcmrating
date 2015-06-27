@@ -87,7 +87,7 @@ class Rating < ActiveRecord::Base
     :"Cannot configure controls. Gamepad support" => 1,
     :"Sensitivity options, can remap some keys" => 2,
     :"Can remap most keys, gamepad support, sensitivity controls" => 3,
-    :"Can use a range of devises, remap all keys, have alternate control sets, and set sensitivity" => 4,
+    :"Can use a range of devices, remap all keys, have alternate control sets, and set sensitivity" => 4,
   }
 
   def self.ranking score
