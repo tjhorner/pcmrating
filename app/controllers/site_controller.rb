@@ -2,7 +2,7 @@ class SiteController < ApplicationController
 
   def index
     @games = Game.all
-    flash[:notice] = ENV["LANDING_NOTICE"] unless flash[:notice]
+    flash[:alert] = ENV["LANDING_NOTICE"] unless flash[:alert]
   end
 
 end
