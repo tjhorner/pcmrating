@@ -8,30 +8,30 @@
     <%= image_tag review.ranking.to_s + '.jpg' %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :framerate %>
+    <%= review.get_rounded_stat :framerate %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :resolution %>
+    <%= review.get_rounded_stat :resolution %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :optimization %>
+    <%= review.get_rounded_stat :optimization %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :mods %>
+    <%= review.get_rounded_stat :mods %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :servers %>
+    <%= review.get_rounded_stat :servers %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :dlc %>
+    <%= review.get_rounded_stat :dlc %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :bugs %>
+    <%= review.get_rounded_stat :bugs %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :settings %>
+    <%= review.get_rounded_stat :settings %>
   </div>
   <div class="col-xs-1 stat">
-    <%= review.get_stat :controls %>
+    <%= review.get_rounded_stat :controls %>
   </div>
 </div>

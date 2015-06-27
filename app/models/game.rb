@@ -44,6 +44,10 @@ class Game < ActiveRecord::Base
     average_array ratings.map {|rating| rating[stat]}
   end
 
+  def get_rounded_stat stat
+    get_stat(stat).round
+  end
+
   def average_array array
     array.inject{ |sum, el| sum + el }.to_f / array.size
   end

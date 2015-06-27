@@ -11,31 +11,31 @@
       <%= image_tag(game.ranking.to_s + '.jpg') %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :framerate %>
+      <%= game.get_rounded_stat :framerate %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :resolution %>
+      <%= game.get_rounded_stat :resolution %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :optimization %>
+      <%= game.get_rounded_stat :optimization %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :mods %>
+      <%= game.get_rounded_stat :mods %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :servers %>
+      <%= game.get_rounded_stat :servers %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :dlc %>
+      <%= game.get_rounded_stat :dlc %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :bugs %>
+      <%= game.get_rounded_stat :bugs %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :settings %>
+      <%= game.get_rounded_stat :settings %>
     </div>
     <div class="col-xs-1 stat">
-      <%= game.get_stat :controls %>
+      <%= game.get_rounded_stat :controls %>
     </div>
   <% end %>
 </div>
