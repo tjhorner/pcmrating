@@ -1,0 +1,22 @@
+<div class="row">
+
+  <div class="col-xs-6 authentication-form left">
+
+    <%= render 'devise/shared/signup_form' %>
+
+  </div>
+
+  <div class="col-xs-6 authentication-form right">
+
+    <%= render 'devise/shared/login_form' %>
+
+  </div>
+
+</div>
+
+<script>
+  var leftHeight = $('.authentication-form.left').height();
+  var rightHeight = $('.authentication-form.right').height();
+
+  $('.authentication-form.left, .authentication-form.right').height(Math.max.apply(Math, [leftHeight, rightHeight]));
+</script>
