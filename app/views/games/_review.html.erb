@@ -38,4 +38,10 @@
     <%= link_to 'Delete', destroy_rating_path(id: review.id), method: :delete %>
   <% end %>
 
+  <div>
+    <%= link_to("▲", upvote_rating_path(id: review.id), method: :post) %>
+    <%= link_to("▼", downvote_rating_path(id: review.id), method: :post) %>
+    <%= review.score %>
+  </div>
+
 </div>

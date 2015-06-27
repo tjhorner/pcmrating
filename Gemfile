@@ -21,6 +21,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Functionality
 
 gem 'will_paginate'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'sqlite3'

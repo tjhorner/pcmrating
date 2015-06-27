@@ -13,17 +13,19 @@ class Game < ActiveRecord::Base
   before_create :get_data
 
   def rating
-    if ratings.size == 0
+    ratings_array = ratings.visible
+
+    if ratings_array.size == 0
       return false
     end
 
     total = 0
 
-    ratings.each do |rating|
+    ratings_array.each do |rating|
       total += rating.total
     end
 
-    return total / ratings.size
+    return total / ratings_array.size
   end
 
   # Stats
@@ -41,7 +43,7 @@ class Game < ActiveRecord::Base
   end
 
   def get_stat stat
-    average_array ratings.map {|rating| rating[stat]}
+    average_array ratings.visible.map {|rating| rating[stat]}
   end
 
   def get_rounded_stat stat

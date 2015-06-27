@@ -1,5 +1,7 @@
 class Rating < ActiveRecord::Base
 
+  acts_as_votable
+
   belongs_to :user
   belongs_to :game
 
@@ -105,6 +107,25 @@ class Rating < ActiveRecord::Base
     else
       :no_ratings
     end
+  end
+
+  # REFACTOR
+  def self.visible
+    visible_array = []
+
+    all.each do |rating|
+      visible_array.append(rating) unless rating.hidden?
+    end
+
+    return visible_array
+  end
+
+  def hidden?
+    score < -3
+  end
+
+  def score
+    votes_for.up.size - votes_for.down.size
   end
 
   def get_stat stat
