@@ -92,6 +92,10 @@ class Game < ActiveRecord::Base
     data[data.keys[0]]["data"]["website"] if data
   end
 
+  def launch_game_link
+    "steam://run/#{id}"
+  end
+
   def rated_by_user? user
     return false unless user
 
