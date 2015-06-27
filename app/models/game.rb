@@ -41,7 +41,7 @@ class Game < ActiveRecord::Base
   end
 
   def get_stat stat
-    average_array ratings.map {|rating| rating[stat]}
+    average_array(ratings.map {|rating| rating[stat]}).round
   end
 
   def average_array array
