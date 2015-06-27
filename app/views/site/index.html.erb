@@ -5,6 +5,15 @@
         <h1>Welcome to PCMRatings!</h1>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <%= link_to 'View Games', games_path, class: 'btn btn-success full-width' %>
+        <%= link_to 'Login to review', new_user_session_path, class: 'btn btn-info full-width' %>
+        <%= link_to 'Sign up to review', new_user_registration_path, class: 'btn btn-info full-width' %>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3 exposition">
         <div>
@@ -33,6 +42,11 @@
 
         <div>
           All true PC developers must aim to produce Glorious games. The closer they reach the more they should be praised. Even non-ports can still be peasantry if the developers have fallen sufficiently low.
+        </div>
+
+        <div>
+          Example of the review interface:
+          <%= image_tag 'http://i.imgur.com/hDHeSGY.png' %>
         </div>
 
         <div>
