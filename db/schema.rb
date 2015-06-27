@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150627153908) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "games", force: :cascade do |t|
     t.integer "user_id"
     t.integer "steam_appid"
@@ -43,13 +46,13 @@ ActiveRecord::Schema.define(version: 20150627153908) do
     t.float    "cached_weighted_average", default: 0.0
   end
 
-  add_index "ratings", ["cached_votes_down"], name: "index_ratings_on_cached_votes_down"
-  add_index "ratings", ["cached_votes_score"], name: "index_ratings_on_cached_votes_score"
-  add_index "ratings", ["cached_votes_total"], name: "index_ratings_on_cached_votes_total"
-  add_index "ratings", ["cached_votes_up"], name: "index_ratings_on_cached_votes_up"
-  add_index "ratings", ["cached_weighted_average"], name: "index_ratings_on_cached_weighted_average"
-  add_index "ratings", ["cached_weighted_score"], name: "index_ratings_on_cached_weighted_score"
-  add_index "ratings", ["cached_weighted_total"], name: "index_ratings_on_cached_weighted_total"
+  add_index "ratings", ["cached_votes_down"], name: "index_ratings_on_cached_votes_down", using: :btree
+  add_index "ratings", ["cached_votes_score"], name: "index_ratings_on_cached_votes_score", using: :btree
+  add_index "ratings", ["cached_votes_total"], name: "index_ratings_on_cached_votes_total", using: :btree
+  add_index "ratings", ["cached_votes_up"], name: "index_ratings_on_cached_votes_up", using: :btree
+  add_index "ratings", ["cached_weighted_average"], name: "index_ratings_on_cached_weighted_average", using: :btree
+  add_index "ratings", ["cached_weighted_score"], name: "index_ratings_on_cached_weighted_score", using: :btree
+  add_index "ratings", ["cached_weighted_total"], name: "index_ratings_on_cached_weighted_total", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -73,9 +76,9 @@ ActiveRecord::Schema.define(version: 20150627153908) do
     t.boolean  "banned",                 default: false
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"
@@ -89,7 +92,7 @@ ActiveRecord::Schema.define(version: 20150627153908) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
 end
