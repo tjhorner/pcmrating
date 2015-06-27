@@ -1,7 +1,7 @@
 @import "common/mixins"
 @import "common/variables"
 
-.rating-form, .new-game-form, .authentication-form
+.rating-form, .new-game-form, .authentication-form, .form
   .images
     @include flexbox-centered-children
     margin-bottom: 45px
@@ -21,12 +21,15 @@
     h2
       display: none
 
+.form
+  border: 1px solid $border-color
+  border-radius: 10px
+  padding-bottom: 20px
+
 .authentication-form
-  &.left, &.right
-    border: 1px solid $border-color
 
   &.left
-    padding-bottom: 20px
+    border-radius: 0px
     -webkit-border-top-left-radius: 10px
     -webkit-border-bottom-left-radius: 10px
     -moz-border-radius-topleft: 10px
@@ -36,7 +39,7 @@
 
   &.right
     border-left: none
-    padding-bottom: 20px
+    border-radius: 0px
     -webkit-border-top-right-radius: 10px
     -webkit-border-bottom-right-radius: 10px
     -moz-border-radius-topright: 10px
