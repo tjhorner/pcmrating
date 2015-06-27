@@ -14,7 +14,7 @@
   <%= @user.username %>'s reviews
 </h3>
 
-<div id="game-index">
+<div class="game-index">
   <div class="hidden-xs">
     <div class="row headers">
       <div class="col-xs-2">
@@ -71,3 +71,9 @@
   <%= will_paginate @reviews %>
 
 </div>
+
+<script>
+  var sticky = new Waypoint.Sticky({
+    element: $('.game-index .headers')[0]
+  })
+</script>
