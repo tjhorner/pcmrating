@@ -111,13 +111,9 @@ class Rating < ActiveRecord::Base
 
   # REFACTOR
   def self.visible
-    visible_array = []
-
-    all.each do |rating|
-      visible_array.append(rating) unless rating.hidden?
+    all.select do |rating|
+      !rating.hidden?
     end
-
-    return visible_array
   end
 
   def hidden?
