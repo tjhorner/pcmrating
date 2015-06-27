@@ -23,6 +23,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'will_paginate'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug'

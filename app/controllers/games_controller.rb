@@ -5,7 +5,8 @@ class GamesController < ApplicationController
   before_action :setup_game, except: [:index, :new, :create]
 
   def index
-    @games = Game.all.paginate(:page => params[:page], per_page: 6)
+    @q = Game.ransack(params[:q])
+    @games = @q.result.paginate(page: params[:page], per_page: 6)
   end
 
   def show
