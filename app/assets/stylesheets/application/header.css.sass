@@ -1,4 +1,10 @@
 @import "common/mixins"
+@import "common/variables"
 
 .navbar
   @include flexbox-centered-children
+  .navbar-nav
+    li
+      border-right: 1px solid $border-color
+      &:first-child
+        border-left: 1px solid $border-color
