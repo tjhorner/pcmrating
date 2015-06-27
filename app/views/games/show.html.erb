@@ -34,8 +34,8 @@
         <div class="col-xs-12">
           <h3>Reviews</h3>
           <div>
-            <%= link_to('Write Review', new_rating_path) unless @game.rated_by_user? current_user %>
-            <%= link_to('Edit Your Review', edit_rating_path) if @game.rated_by_user? current_user %>
+            <%= link_to('Write Review', new_rating_path, class: 'btn btn-success full-width') unless @game.rated_by_user? current_user %>
+            <%= link_to('Edit Your Review', edit_rating_path, class: 'btn btn-success full-width') if @game.rated_by_user? current_user %>
           </div>
 
           <%= render partial: 'review', collection: @reviews %>
