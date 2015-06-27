@@ -26,8 +26,9 @@ Rails.application.routes.draw do
   get 'games/:steam_appid/reviews/edit',     to: 'ratings#edit',     as: :edit_rating
   patch 'games/:steam_appid/reviews/update', to: 'ratings#update',   as: :update_rating
 
-  post 'games/:steam_appid/reviews/destroy', to: 'ratings#destroy',  as: :destroy_rating
+  delete 'reviews/:id/destroy', to: 'ratings#destroy',  as: :destroy_rating
 
   get 'user/:id', to: 'users#show', as: :show_user
+  post 'user/:id/ban', to: 'users#ban', as: :ban_user
 
 end

@@ -41,6 +41,14 @@ class RatingsController < ApplicationController
     redirect_to show_rating_path(id: @rating.id)
   end
 
+  def destroy
+    @rating = Rating.find_by(id: params[:id])
+
+    @rating.destroy
+
+    redirect_to show_game_path(steam_appid: @rating.game.steam_appid)
+  end
+
   private
 
     def user?

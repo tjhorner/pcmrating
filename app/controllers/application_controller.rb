@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :store_location
+  before_filter :banned?
 
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
@@ -22,6 +23,12 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     session[:previous_url] || root_path
+  end
+
+  def banned?
+    if current_user && current_user.banned?
+      redirect_to "https://www.google.co.uk/webhp#q=you%27vebeenbanned"
+    end
   end
 
   protected

@@ -34,4 +34,8 @@
     </div>
   <% end %>
 
+  <% if current_user && current_user.admin? %>
+    <%= link_to 'Delete', destroy_rating_path(id: review.id), method: :delete %>
+  <% end %>
+
 </div>

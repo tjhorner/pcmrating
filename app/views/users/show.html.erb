@@ -2,6 +2,14 @@
   <%= @user.username %>'s profile
 </h3>
 
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Ban user', ban_user_path(id: @user.id), method: :post %>
+<% end %>
+
+<% if @user.banned? %>
+  BANNED
+<% end %>
+
 <h3>
   <%= @user.username %>'s reviews
 </h3>
