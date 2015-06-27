@@ -99,7 +99,7 @@ class Game < ActiveRecord::Base
   end
 
   def launch_game_link
-    "steam://run/#{self.  steam_appid}"
+    "steam://run/#{self.steam_appid}"
   end
 
   def rated_by_user? user
