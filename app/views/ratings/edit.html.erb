@@ -19,48 +19,48 @@
           <div class="col-xs-6">
             <div>
               <%= f.label "Frame rate:" %>
-              <%= f.select :framerate, options_for_select(Rating.framerates.keys), class: "form-control" %>
+              <%= f.select :framerate, options_for_select(Rating.framerates.keys), {}, class: "form-control" %>
             </div>
 
             <div>
               <%= f.label "Resolution:" %>
-              <%= f.select :resolution, options_for_select(Rating.resolutions.keys), class: "form-control" %>
+              <%= f.select :resolution, options_for_select(Rating.resolutions.keys), {}, class: "form-control" %>
             </div>
 
             <div>
               <%= f.label "Optimization:" %>
-              <%= f.select :optimization, options_for_select(Rating.optimizations.keys), class: "form-control" %>
+              <%= f.select :optimization, options_for_select(Rating.optimizations.keys), {}, class: "form-control" %>
             </div>
 
             <div>
               <%= f.label "Mods:" %>
-              <%= f.select :mods, options_for_select(Rating.mods.keys), class: "form-control" %>
+              <%= f.select :mods, options_for_select(Rating.mods.keys), {}, class: "form-control" %>
             </div>
 
             <div>
               <%= f.label "Servers:" %>
-              <%= f.select :servers, options_for_select(Rating.servers.keys), class: "form-control" %>
+              <%= f.select :servers, options_for_select(Rating.servers.keys), {}, class: "form-control" %>
             </div>
           </div>
           <div class="col-xs-6">
             <div>
               <label>DLC:</label>
-              <%= f.select :dlc, options_for_select(Rating.dlcs.keys), class: "form-control" %>
+              <%= f.select :dlc, options_for_select(Rating.dlcs.keys), {}, class: "form-control" %>
             </div>
 
             <div>
               <%= f.label "Buggyness:" %>
-              <%= f.select :bugs, options_for_select(Rating.bugs.keys), class: "form-control" %>
+              <%= f.select :bugs, options_for_select(Rating.bugs.keys), {}, class: "form-control" %>
             </div>
 
             <div>
               <%= f.label "Settings:" %>
-              <%= f.select :settings, options_for_select(Rating.settings.keys), class: "form-control" %>
+              <%= f.select :settings, options_for_select(Rating.settings.keys, {}), class: "form-control" %>
             </div>
 
             <div>
               <%= f.label "Controls:" %>
-              <%= f.select :controls, options_for_select(Rating.controls.keys), class: "form-control" %>
+              <%= f.select :controls, options_for_select(Rating.controls.keys), {}, class: "form-control" %>
             </div>
 
           </div>
