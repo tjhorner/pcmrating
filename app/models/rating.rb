@@ -111,6 +111,10 @@ class Rating < ActiveRecord::Base
     self[stat]
   end
 
+  def get_rounded_stat stat
+    get_stat(stat).round
+  end
+
   def ranking
     Rating.ranking(total)
   end
