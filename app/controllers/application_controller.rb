@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
     return unless request.get?
-    if (request.path != "/users/sign_in" &&
-        request.path != "/users/sign_up" &&
-        request.path != "/users/password/new" &&
-        request.path != "/users/password/edit" &&
-        request.path != "/users/confirmation" &&
-        request.path != "/users/sign_out" &&
+    if (request.path != '/users/sign_in' &&
+        request.path != '/users/sign_up' &&
+        request.path != '/users/password/new' &&
+        request.path != '/users/password/edit' &&
+        request.path != '/users/confirmation' &&
+        request.path != '/users/sign_out' &&
         !request.xhr?) # don't store ajax calls
       session[:previous_url] = request.fullpath
     end
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
 
   def banned?
     if current_user && current_user.banned?
-      redirect_to "https://www.google.co.uk/webhp#q=you%27vebeenbanned"
+      redirect_to 'https://www.google.co.uk/webhp#q=you%27vebeenbanned'
     end
   end
 
