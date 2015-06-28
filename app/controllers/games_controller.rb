@@ -11,7 +11,7 @@ class GamesController < ApplicationController
 
   def show
     if @game
-      @reviews = @game.ratings.paginate(:page => params[:page], per_page: 6)
+      @reviews = @game.ratings.paginate(page: params[:page], per_page: 6)
     else
       @game = Game.new(steam_appid: params[:steam_appid])
       render :new
@@ -26,13 +26,9 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(permitted_params)
-    @game.user = current_user
-    @game.save
+    @game = Game.create(permitted_params.merge(user: current_user))
 
-    if @game.errors.size > 0
-      flash[:error] = @game.errors.full_messages[0]
-    end
+    flash[:error] = @game.errors.full_messages[0]
 
     redirect_to show_game_path(steam_appid: params[:game][:steam_appid])
   end
@@ -43,22 +39,21 @@ class GamesController < ApplicationController
 
   private
 
-    def user?
-      flash[:success] = 'Login or signup to continue'
-      redirect_to new_user_session_path unless current_user
-    end
+  def user?
+    flash[:success] = 'Login or signup to continue'
+    redirect_to new_user_session_path unless current_user
+  end
 
-    def admin?
-      redirect_to root_path unless current_user.admin?
-    end
+  def admin?
+    redirect_to root_path unless current_user.admin?
+  end
 
-    def setup_game
-      @game = Game.find_by(steam_appid: params[:steam_appid])
-    end
+  def setup_game
+    @game = Game.find_by(steam_appid: params[:steam_appid])
+  end
 
-    def permitted_params
-      params.require(:game).permit(:steam_appid)
-    end
+  def permitted_params
+    params.require(:game).permit(:steam_appid)
+  end
 
 end
-

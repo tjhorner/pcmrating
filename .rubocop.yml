@@ -2,3 +2,7 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
+    - 'bin/*'
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false

@@ -5,27 +5,24 @@ class Rating < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
-  validates :user, presence: true
-  validates :game, presence: true
+  validates_uniqueness_of :user_id, scope: :game_id
 
-  validates_uniqueness_of :user_id, :scope => :game_id
+  validates :user, :game, :framerate, :resolution, :optimization, presence: true
+  validates :dlc, :bugs, :settings, :controls, :servers, :mods, presence: true
 
-  validates :framerate,    presence: true
-  validates :resolution,   presence: true
-  validates :optimization, presence: true
-  validates :mods,         presence: true
-  validates :servers,      presence: true
-  validates :dlc,          presence: true
-  validates :bugs,         presence: true
-  validates :settings,     presence: true
-  validates :controls,     presence: true
+  # TODO: Pull out of this class
+  CATEGORY_WEIGHTS = {
+    framerate: 8, resolution: 7, optimization: 9, mods: 3,
+    servers: 5, dlc: 4, bugs: 6, settings: 2, controls: 1
+  }
 
+  # TODO: Move these enums elsewhere, they're clogging up the class.
   enum framerate: {
     :'May be capped to 30 FPS' => 0,
     :'May be capped to 60 FPS' => 1,
     :'60 FPS capped' => 2,
     :'60 FPS capped, potentially limitless' => 3,
-    :'Limitless (like your dreams)' => 4,
+    :'Limitless (like your dreams)' => 4
   }
 
   enum resolution: {
@@ -33,15 +30,15 @@ class Rating < ActiveRecord::Base
     :'Limited 1080p support' => 1,
     :'Supports 1080p' => 2,
     :'Supports 1080p with multi-monitor support' => 3,
-    :'4k and beyond' => 4,
+    :'4k and beyond' => 4
   }
 
   enum optimization: {
-    :'Poor' => 0,
-    :'Passable' => 1,
-    :'Good' => 2,
-    :'Great' => 3,
-    :'Glorious!' => 4,
+    Poor: 0,
+    Passable: 1,
+    Good: 2,
+    Great: 3,
+    Glorious: 4
   }
 
   enum mods: {
@@ -49,7 +46,7 @@ class Rating < ActiveRecord::Base
     :'Unofficial support/Heavily restricted' => 1,
     :'Unofficial support, may be limited to cosmetic changes' => 2,
     :'Official support, modding tools are limited' => 3,
-    :'Complete support, modding tools close to tools developers used' => 4,
+    :'Complete support, modding tools close to tools developers used' => 4
   }
 
   enum servers: {
@@ -57,7 +54,7 @@ class Rating < ActiveRecord::Base
     :'Partially stable servers.' => 1,
     :'Servers unstable at high volume.' => 2,
     :'Acceptable servers' => 3,
-    :'Reliable servers or dedicated server software available (or Single Player)' => 4,
+    :'Reliable servers or dedicated server software available (or Single Player)' => 4
   }
 
   enum dlc: {
@@ -65,7 +62,7 @@ class Rating < ActiveRecord::Base
     :'Day 1 DLC, cosmetic only' => 1,
     :'No Day 1 DLC' => 2,
     :'Day 1 DLC is free and provides useful content' => 3,
-    :'Large content patches in the style of old expansions or no DLC' => 4,
+    :'Large content patches in the style of old expansions or no DLC' => 4
   }
 
   enum bugs: {
@@ -73,7 +70,7 @@ class Rating < ActiveRecord::Base
     :'Excessively buggy, mostly playable' => 1,
     :'Playable but often encounter bugs' => 2,
     :'A few bugs here and there, but rarely do they affect enjoyment' => 3,
-    :'Rare bugs. Possible to go entire game without encountering' => 4,
+    :'Rare bugs. Possible to go entire game without encountering' => 4
   }
 
   enum settings: {
@@ -81,7 +78,7 @@ class Rating < ActiveRecord::Base
     :'Limited settings, no video options' => 1,
     :'Preset video settings only (Low, Medium, High)' => 2,
     :'Acceptable video settings, can change most things' => 3,
-    :'Complete video settings, can change and turn off everything' => 4,
+    :'Complete video settings, can change and turn off everything' => 4
   }
 
   enum controls: {
@@ -89,10 +86,10 @@ class Rating < ActiveRecord::Base
     :'Cannot configure controls. Gamepad support' => 1,
     :'Sensitivity options, can remap some keys' => 2,
     :'Can remap most keys, gamepad support, sensitivity controls' => 3,
-    :'Can use a range of devices, remap all keys, have alternate control sets, and set sensitivity' => 4,
+    :'Can use a range of devices, remap all keys, have alternate control sets, and set sensitivity' => 4
   }
 
-  def self.ranking score
+  def self.ranking(score)
     case score
     when 0..35
       :p
@@ -109,7 +106,6 @@ class Rating < ActiveRecord::Base
     end
   end
 
-  # REFACTOR
   def self.visible
     all.select do |rating|
       !rating.hidden?
@@ -124,11 +120,11 @@ class Rating < ActiveRecord::Base
     cached_votes_score
   end
 
-  def get_stat stat
+  def get_stat(stat)
     self[stat]
   end
 
-  def get_rounded_stat stat
+  def get_rounded_stat(stat)
     get_stat(stat).round
   end
 
@@ -138,17 +134,11 @@ class Rating < ActiveRecord::Base
 
   def total
     total = 0
-    total += self[:framerate]     * 8
-    total += self[:resolution]    * 7
-    total += self[:optimization]  * 9
-    total += self[:mods]          * 3
-    total += self[:servers]       * 5
-    total += self[:dlc]           * 4
-    total += self[:bugs]          * 6
-    total += self[:settings]      * 2
-    total += self[:controls]      * 1
+    CATEGORY_WEIGHTS.each do |category, weight|
+      total += self[category] * weight
+    end
 
-    return total
+    total
   end
 
 end
