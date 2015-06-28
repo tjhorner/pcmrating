@@ -17,11 +17,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Functionality
-
 gem 'devise'
 gem 'will_paginate'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'ransack'
+gem 'metamagic'
 
 group :development, :test do
   gem 'rubocop'

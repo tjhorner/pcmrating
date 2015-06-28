@@ -105,7 +105,7 @@ class Game < ActiveRecord::Base
   private
 
   def request_game_data
-    url = 'http://store.steampowered.com/api/appdetails/?appids=#{steam_appid}'
+    url = "http://store.steampowered.com/api/appdetails/?appids=#{steam_appid}"
     resp = Net::HTTP.get_response(URI.parse(url))
     data = JSON.parse(resp.body)
 

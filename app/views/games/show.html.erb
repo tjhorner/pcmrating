@@ -1,3 +1,13 @@
+<% meta title: "#{@game.title} Reviews for PC" ,
+        description: "#{@game.title} reviews for PC platform.",
+        keywords: %w(@game.title pcmr pcmasterrace pcrating pcglorious),
+        og: {
+          title: "#{@game.title} Reviews for PC" ,
+          site_name: "PCMRating",
+          url: show_game_url(@game.steam_appid),
+          image: @game.header_image
+        } %>
+
 <div class="game-show-page">
   <div class="game-title">
     <h1><%= @game.title %></h1>
