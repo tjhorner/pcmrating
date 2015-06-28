@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.2'
 gem 'pg'
 
-# Authentication
-gem 'devise'
-
 # CSS
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
@@ -21,17 +18,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Functionality
 
+gem 'devise'
 gem 'will_paginate'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'ransack'
 
 group :development, :test do
+  gem 'rubocop'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'better_errors'
-  gem "binding_of_caller"
-  gem "letter_opener"
+  gem 'binding_of_caller'
+  gem 'letter_opener'
 end
 
 group :production do
