@@ -15,30 +15,30 @@ how you can easily clone the project, install dependencies and run the project.
 
 1. Clone the project.
 
-```
-$ cd ~/Work
-$ git clone git@github.com:PCMRating/pcmrating.git
-```
+  ```
+  $ cd Your-Development-Folder
+  $ git clone git@github.com:PCMRating/pcmrating.git
+  ```
 
 2. Install dependencies.
 
-```
-$ cd pcmrating/
-$ bundle install
-```
+  ```
+  $ cd pcmrating/
+  $ bundle install
+  ```
 
 3. Create the database.
 
-```
-$ rake db:create
-$ rake db:migrate
-```
+  ```
+  $ rake db:create
+  $ rake db:migrate
+  ```
 
 4. Run the project.
 
-```
-$ rails server
-```
+  ```
+  $ rails server
+  ```
 
 ## Contributing Guidelines
 
