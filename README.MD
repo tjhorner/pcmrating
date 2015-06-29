@@ -20,21 +20,21 @@ $ cd ~/Work
 $ git clone git@github.com:PCMRating/pcmrating.git
 ```
 
-1. Install dependencies.
+2. Install dependencies.
 
 ```
 $ cd pcmrating/
 $ bundle install
 ```
 
-2. Create the database.
+3. Create the database.
 
 ```
 $ rake db:create
 $ rake db:migrate
 ```
 
-3. Run the project.
+4. Run the project.
 
 ```
 $ rails server
@@ -45,6 +45,7 @@ $ rails server
 - All pull requests must be done via GitHub.
 - Pull requests must be atomic in nature, and not extend beyond their intended scope.
 - Pull requests must have descriptive titles.
+- Add yourself to the contributors file.
 
 ## Code Style Guidelines
 
