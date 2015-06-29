@@ -1,4 +1,5 @@
 class Game < ActiveRecord::Base
+  extend FriendlyId
 
   require 'net/http'
 
@@ -12,6 +13,7 @@ class Game < ActiveRecord::Base
   validates :steam_appid, uniqueness: true
 
   before_create :request_game_data
+  friendly_id :title, use: :slugged
 
   def rating
     ratings_array = ratings.visible
