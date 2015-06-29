@@ -12,7 +12,7 @@ class RatingsController < ApplicationController
     @game = Game.find_by(steam_appid: params[:steam_appid].to_i)
     @rating = Rating.find_by(user: current_user, game: @game)
 
-    redirect_to show_game_path(steam_appid: params[:steam_appid]) unless @rating
+    redirect_to show_game_path(id: @game.slug) unless @rating
   end
 
   def new
@@ -27,7 +27,7 @@ class RatingsController < ApplicationController
     @rating.game = @game
 
     if @rating.save
-      redirect_to show_game_path(steam_appid: @game.steam_appid)
+      redirect_to show_game_path(id: @game.slug)
     else
       render :new
     end

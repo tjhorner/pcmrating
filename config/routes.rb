@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # GAMES
   get 'games/index',                        to: 'games#index',      as: :games
   get 'games/index/page/:page',             to: 'games#index',      as: :games_page
-  get 'games/show/:steam_appid',            to: 'games#show',       as: :show_game
-  get 'games/show/:steam_appid/page/:page', to: 'games#show',       as: :show_game_page
+  get ':id-pc-reviews',                     to: 'games#show',       as: :show_game
+  get ':id-pc-reviews/page/:page',          to: 'games#show',       as: :show_game_page
 
   get 'games/new',                          to: 'games#new',        as: :new_game
   post 'games/create',                      to: 'games#create',     as: :create_game
