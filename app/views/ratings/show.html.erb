@@ -6,7 +6,7 @@
         <%= @rating.game.title %> review <%= "by #{@rating.user.username}" if @rating.user.username %>
       </h3>
 
-      <%= link_to "Back to game page", show_game_path, class: 'back-link' %>
+      <%= link_to "Back to game page", show_game_path(id: @rating.game.slug), class: 'back-link' %>
 
       <div class="row images">
         <div class="col-xs-8">
