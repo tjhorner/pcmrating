@@ -14,28 +14,24 @@ Assuming you're completely new and you want to contribute to the project, here's
 how you can easily clone the project, install dependencies and run the project.
 
 1. Clone the project.
-
 ```
 $ cd ~/Work
 $ git clone git@github.com:PCMRating/pcmrating.git
 ```
 
 2. Install dependencies.
-
 ```
 $ cd pcmrating/
 $ bundle install
 ```
 
 3. Create the database.
-
 ```
 $ rake db:create
 $ rake db:migrate
 ```
 
 4. Run the project.
-
 ```
 $ rails server
 ```
