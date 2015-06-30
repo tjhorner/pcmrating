@@ -26,11 +26,11 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(permitted_params.merge(user: current_user))
-
+    @game = Game.new(permitted_params.merge(user: current_user))
+    @game.save
+    @game.save
     flash[:error] = @game.errors.full_messages[0]
-
-    redirect_to show_game_path(steam_appid: params[:game][:steam_appid])
+    redirect_to game_path(id: @game.slug)
   end
 
   def destroy
@@ -49,7 +49,7 @@ class GamesController < ApplicationController
   end
 
   def setup_game
-    @game = Game.find_by(steam_appid: params[:steam_appid])
+    @game = Game.friendly.find(params[:id])
   end
 
   def permitted_params

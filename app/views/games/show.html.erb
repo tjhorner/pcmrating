@@ -4,7 +4,7 @@
         og: {
           title: "#{@game.title} Reviews for PC" ,
           site_name: "PCMRating",
-          url: show_game_url(@game.steam_appid),
+          url: game_url(@game.slug),
           image: @game.header_image
         } %>
 
@@ -30,8 +30,8 @@
       <div class="row bottom-separator">
         <div class="col-xs-12">
           <div>
-            <%= link_to('Write Review', new_rating_path, class: 'btn btn-success full-width') unless @game.rated_by_user? current_user %>
-            <%= link_to('Edit Your Review', edit_rating_path, class: 'btn btn-success full-width') if @game.rated_by_user? current_user %>
+            <%= link_to('Write Review', new_game_rating_path(@game.slug), class: 'btn btn-success full-width') unless @game.rated_by_user? current_user %>
+            <%= link_to('Edit Your Review', edit_game_rating_path(@game.slug, Rating.where(game_id: @game.id).where(user_id: current_user.id).first.id), class: 'btn btn-success full-width') if @game.rated_by_user? current_user %>
           </div>
         </div>
       </div>
@@ -53,8 +53,8 @@
         <div class="col-xs-12">
           <h3>Reviews</h3>
           <div>
-            <%= link_to('Write Review', new_rating_path, class: 'btn btn-success full-width') unless @game.rated_by_user? current_user %>
-            <%= link_to('Edit Your Review', edit_rating_path, class: 'btn btn-success full-width') if @game.rated_by_user? current_user %>
+            <%= link_to('Write Review', new_game_rating_path(@game.slug), class: 'btn btn-success full-width') unless @game.rated_by_user? current_user %>
+            <%= link_to('Edit Your Review', edit_game_rating_path(@game.slug, Rating.where(game_id: @game.id).where(user_id: current_user.id).first.id), class: 'btn btn-success full-width') if @game.rated_by_user? current_user %>
           </div>
 
           <%= render partial: 'review', collection: @reviews %>

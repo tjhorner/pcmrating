@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <%= form_for @rating, url: update_rating_path do |f| %>
+      <%= form_for @rating, url: game_rating_path(id: @rating.id) do |f| %>
         <div class="row">
           <div class="col-xs-6">
             <div>
