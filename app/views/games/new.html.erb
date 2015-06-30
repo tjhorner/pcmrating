@@ -2,7 +2,7 @@
 
 <div class="row new-game-form">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <%= form_for @game, url: create_game_path do |f| %>
+    <%= form_for @game do |f| %>
       <%= f.text_field :steam_appid, value: @game.steam_appid, class: "form-control", placeholder: "Steam App ID (instructions below)" %>
       <%= f.button "Add Game", class: "btn btn-success" %>
     <% end %>
