@@ -18,7 +18,21 @@
 
     <div class="row add-game-instructions">
       <div class="col-xs-12">
-        <%= image_tag 'app_id_instructions.png' %>
+        <h3>Adding a game</h3>
+        <ol>
+          <li>
+            <b>Search for the game on SteamDB:</b><br>
+            <form action="https://steamdb.info/search/" target="_blank">
+              <input type="hidden" name="a" value="app">
+              <input name="q" placeholder="Electronic Super Joy">
+              <input type="submit" value="Search">
+            </form>
+          </li>
+          <li>
+            <b>Input the game's AppID above:</b><br>
+            <%= image_tag "https://i.imgur.com/aujtOhq.png" %>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
