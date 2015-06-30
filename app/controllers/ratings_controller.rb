@@ -42,11 +42,12 @@ class RatingsController < ApplicationController
   end
 
   def destroy
+    @game = Game.find_by(slug: params[:game_id])
     @rating = Rating.find_by(id: params[:id])
 
-    @rating.destroy
+    @rating.destroy if @rating
 
-    redirect_to show_game_path(steam_appid: @rating.game.steam_appid)
+    redirect_to game_path(id: @game.slug)
   end
 
   private

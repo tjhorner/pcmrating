@@ -35,7 +35,7 @@
   <% end %>
 
   <% if current_user && current_user.admin? %>
-    <%= link_to 'Delete', destroy_rating_path(id: review.id), method: :delete %>
+    <%= link_to 'Delete', game_rating_path(game_id: review.game.slug, id: review.id), method: :delete %>
   <% end %>
 
   <div>
