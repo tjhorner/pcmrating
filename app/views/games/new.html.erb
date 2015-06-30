@@ -3,22 +3,27 @@
 <div class="row new-game-form">
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
     <%= form_for @game, url: create_game_path do |f| %>
-      <div class="row">
-        <div class="col-xs-12">
-          <%= f.label :steam_appid, "Steam App ID (instructions below)" %>
-          <%= f.text_field :steam_appid, value: @game.steam_appid, class: "form-control" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <%= f.button "Add Game", class: "btn btn-success" %>
-        </div>
-      </div>
+      <%= f.text_field :steam_appid, value: @game.steam_appid, class: "form-control", placeholder: "Steam App ID (instructions below)" %>
+      <%= f.button "Add Game", class: "btn btn-success" %>
     <% end %>
 
     <div class="row add-game-instructions">
       <div class="col-xs-12">
-        <%= image_tag 'app_id_instructions.png' %>
+        <h3>Getting the Steam App ID</h3>
+        <ol>
+          <li>
+            <b>Search for the game on SteamDB:</b><br>
+            <form action="https://steamdb.info/search/" target="_blank">
+              <input type="hidden" name="a" value="app">
+              <input name="q" placeholder="Electronic Super Joy" class="form-control">
+              <button type="submit" class="btn btn-info full-width">Search SteamDB</button>
+            </form>
+          </li>
+          <li>
+            <b>Input the game's AppID above:</b><br>
+            <%= image_tag "https://i.imgur.com/aujtOhq.png" %>
+          </li>
+        </ol>
       </div>
     </div>
   </div>
