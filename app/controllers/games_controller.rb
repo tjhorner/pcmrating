@@ -30,7 +30,7 @@ class GamesController < ApplicationController
     @game.save
     @game.save
     flash[:error] = @game.errors.full_messages[0]
-    redirect_to show_game_path(id: @game.slug)
+    redirect_to game_path(id: @game.slug)
   end
 
   def destroy
