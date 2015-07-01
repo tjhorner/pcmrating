@@ -6,7 +6,7 @@
       <div class="row images">
         <div class="col-xs-6">
           <h3>
-            New review for <%= @game.name %>
+            New review for <%= @game.title %>
           </h3>
         </div>
         <div class="col-xs-6 col-sm-2">
@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <%= form_for @rating, url: create_rating_path do |f| %>
+      <%= form_for @rating, url: game_ratings_path do |f| %>
         <div class="row">
           <div class="col-xs-6">
             <div>

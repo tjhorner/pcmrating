@@ -17,14 +17,14 @@ class VotesController < ApplicationController
 
   private
 
-    def user?
-      flash[:success] = 'Login or signup to continue'
-      redirect_to new_user_session_path unless current_user
-    end
+  def user?
+    flash[:success] = 'Login or signup to continue'
+    redirect_to new_user_session_path unless current_user
+  end
 
-    def setup_rating
-      @rating = Rating.find_by(id: params[:id])
-      redirect_to root_path unless @rating
-    end
+  def setup_rating
+    @rating = Rating.find_by(id: params[:id])
+    redirect_to root_path unless @rating
+  end
 
 end
